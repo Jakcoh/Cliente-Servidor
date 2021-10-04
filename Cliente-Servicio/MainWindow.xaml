@@ -1,0 +1,97 @@
+﻿<Window x:Class="Cliente_Servicio.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Cliente_Servicio"
+        mc:Ignorable="d"
+        Title="Cuestionario" Height="450" Width="800" ResizeMode="NoResize" >
+    <Window.DataContext>
+        <local:Cliente></local:Cliente>
+    </Window.DataContext>
+    <Window.Resources>
+
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="Transparent"></Setter>
+            <Setter Property="BorderThickness" Value="0"></Setter>
+
+        </Style>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontSize" Value="16"/>
+        </Style>
+
+        <Style TargetType="Image">
+            <Setter Property="Height" Value="130"/>
+        </Style>
+    </Window.Resources>
+
+    <StackPanel>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="120"/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition Height="120"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Image Source="Assets/taquito.jpg"></Image>
+
+            <TextBlock TextAlignment="Center" Grid.ColumnSpan="5" FontSize="24">El Gran Taco - Servicio a Domicilio</TextBlock>
+
+            <StackPanel Grid.Row="1" Grid.Column="0">
+                <Button Click="Button_Click" Command="{Binding EnviarCommand}" 
+                        CommandParameter="Pesimo">
+                    <Image Source="/Assets/Angry.png" />
+
+                </Button>
+                <TextBlock Foreground="Red" TextAlignment="Center">Pesímo</TextBlock>
+            </StackPanel>
+
+            <StackPanel Grid.Row="1" Grid.Column="1">
+                <Button Click="Button_Click" Command="{Binding EnviarCommand}" 
+                        CommandParameter="Malo">
+                    <Image Source="/Assets/meh.png" />
+
+                </Button>
+                <TextBlock Foreground="DarkOrange" TextAlignment="Center">Malo</TextBlock>
+            </StackPanel>
+            <StackPanel Grid.Row="1" Grid.Column="2">
+                <Button Click="Button_Click" Command="{Binding EnviarCommand}" 
+                        CommandParameter="Normal">
+                    <Image Source="/Assets/normal.png" />
+
+                </Button>
+                <TextBlock Foreground="Orange" TextAlignment="Center">Regular</TextBlock>
+            </StackPanel>
+            <StackPanel Grid.Row="1" Grid.Column="3">
+                <Button Click="Button_Click" Command="{Binding EnviarCommand}" 
+                        CommandParameter="Bueno">
+                    <Image Source="/Assets/bueno.png" />
+
+                </Button>
+                <TextBlock Foreground="Green" TextAlignment="Center">Bueno</TextBlock>
+            </StackPanel>
+            <StackPanel Grid.Row="1" Grid.Column="4">
+                <Button Click="Button_Click" Command="{Binding EnviarCommand}" 
+                        CommandParameter="SpBien">
+                    <Image Source="/Assets/feliz.png" />
+
+                </Button>
+                <TextBlock Foreground="Blue" TextAlignment="Center">Super Bien</TextBlock>
+            </StackPanel>
+
+            <TextBlock Grid.Row="2" Grid.ColumnSpan="5" Margin="0,20" TextAlignment="Center">¿Como considera usted que ha sido nuestro servicio a domicilio? </TextBlock>
+
+            <Button Height="100" Margin="0,0,0,20" Grid.Column="4" Grid.Row="4"
+                    Padding="0" Command="{Binding ConectarCommand}">
+                <Image  Height="60" Source="/Assets/send.png" />
+            </Button>
+        </Grid>
+    </StackPanel>
+</Window>
