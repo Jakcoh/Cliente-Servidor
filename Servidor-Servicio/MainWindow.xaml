@@ -19,11 +19,7 @@
     <DockPanel>
         <TextBlock DockPanel.Dock="Top"  Padding="10" HorizontalAlignment="Left" FontSize="23" FontWeight="Bold" Foreground="Black">Respuesta al Momento</TextBlock>
         <Canvas Margin="165,60" DockPanel.Dock="Top">
-
-            <TextBlock Canvas.Left="-145" Canvas.Top="30" FontSize="12" Foreground="Black">Nivel de Conformidad Alto</TextBlock>
-            <TextBlock Canvas.Left="-145" Canvas.Bottom="-145" FontSize="12" Foreground="Black">Nivel de Conformidad bajo</TextBlock>
-            <Rectangle Margin="0,40,0,10" Width="7" Fill="#212121" HorizontalAlignment="Left"
-                   Height="100"/>
+                
             <Rectangle Margin="0,10" Canvas.Left="0" Canvas.Top="130" Width="460" Fill="Gray" HorizontalAlignment="Left"
                    Height="5" />
 
@@ -34,64 +30,64 @@
                     </TransformGroup>
                 </Rectangle.RenderTransform>
             </Rectangle>
-            <Rectangle Width="{Binding ElementName=Malo, Path=Text}" Fill="#DF711B" Height="80" Canvas.Top="140" Canvas.Left="100">
+            <Rectangle Width="{Binding ElementName=Malo, Path=Text}" Height="80" Canvas.Top="140" Canvas.Left="100"  Fill="#DF711B">
                 <Rectangle.RenderTransform>
                     <TransformGroup>
                         <RotateTransform Angle="270"/>
                     </TransformGroup>
                 </Rectangle.RenderTransform>
             </Rectangle>
-            <Rectangle Width="{Binding ElementName=Normal, Path=Text}"  Fill="#FFB830" Height="80" Canvas.Top="140" Canvas.Left="190">
+            <Rectangle Width="{Binding ElementName=Normal, Path=Text}" Height="80" Canvas.Top="140" Canvas.Left="190" Fill="#FFB830">
                 <Rectangle.RenderTransform>
                     <TransformGroup>
                         <RotateTransform Angle="270"/>
                     </TransformGroup>
                 </Rectangle.RenderTransform>
             </Rectangle>
-            <Rectangle Width="{Binding ElementName=Bueno, Path=Text}" Fill="#57CC99" Height="80" Canvas.Top="140" Canvas.Left="280">
+            <Rectangle Width="{Binding ElementName=Bueno, Path=Text}" Height="80" Canvas.Top="140" Canvas.Left="280" Fill="#57CC99">
                 <Rectangle.RenderTransform>
                     <TransformGroup>
                         <RotateTransform Angle="270"/>
                     </TransformGroup>
                 </Rectangle.RenderTransform>
             </Rectangle>
-            <Rectangle Width="{Binding ElementName=SpBien, Path=Text}" Fill="#4B6587" Height="80" Canvas.Top="140" Canvas.Left="370">
+            <Rectangle Width="{Binding ElementName=SpBien, Path=Text}" Height="80" Canvas.Top="140" Canvas.Left="370" Fill="#4B6587">
                 <Rectangle.RenderTransform>
                     <TransformGroup>
                         <RotateTransform Angle="270"/>
                     </TransformGroup>
                 </Rectangle.RenderTransform>
             </Rectangle>
-            <TextBlock Margin="0,5,0,0" Canvas.Top="135" Canvas.Left="380">Super Bien</TextBlock>
-            <TextBlock Margin="0,5,0,0"  Canvas.Top="135" Canvas.Left="300">Bueno</TextBlock>
-            <TextBlock Margin="0,5,0,0"  Canvas.Top="135" Canvas.Left="200">Normal</TextBlock>
-            <TextBlock Margin="0,5,0,0"  Canvas.Top="135" Canvas.Left="110">Malo</TextBlock>
-            <TextBlock Margin="0,5,0,0"  Canvas.Top="135" Canvas.Left="10">Pésimo</TextBlock>
+            <TextBlock Margin="0,5,0,0" Canvas.Top="145" Canvas.Left="380">Super Bien</TextBlock>
+            <TextBlock Margin="0,5,0,0"  Canvas.Top="145" Canvas.Left="300">Bueno</TextBlock>
+            <TextBlock Margin="0,5,0,0"  Canvas.Top="145" Canvas.Left="200">Normal</TextBlock>
+            <TextBlock Margin="0,5,0,0"  Canvas.Top="145" Canvas.Left="110">Malo</TextBlock>
+            <TextBlock Margin="0,5,0,0"  Canvas.Top="145" Canvas.Left="10">Pésimo</TextBlock>
 
-            <TextBlock x:Name="SpBien" Text="{Binding SBporcentaje}" Margin="0,5,0,0" Canvas.Top="150" Canvas.Left="390">
+            <TextBlock x:Name="SpBien" Text="{Binding SBporcentaje}" Canvas.Top="160" Canvas.Left="390" Margin="0,5,0,0">
               <Run Text="%"></Run>
             </TextBlock>
-            <TextBlock x:Name="Bueno" Text="{Binding Bporcentaje}" Margin="0,5,0,0"  Canvas.Top="150" Canvas.Left="310">
+            <TextBlock x:Name="Bueno" Text="{Binding Bporcentaje}" Canvas.Top="160" Canvas.Left="310" Margin="0,5,0,0">
                 <Run Text="%"></Run>
             </TextBlock>
-            <TextBlock x:Name="Normal" Text="{Binding Nporcentaje}" Margin="0,5,0,0"  Canvas.Top="150" Canvas.Left="210">
+            <TextBlock x:Name="Normal" Text="{Binding Nporcentaje}" Canvas.Top="160" Canvas.Left="210"  Margin="0,5,0,0">
                 <Run Text="%"></Run>
             </TextBlock>
-            <TextBlock x:Name="Malo" Text="{Binding Mporcentaje}" Margin="0,5,0,0"  Canvas.Top="150" Canvas.Left="120">
+            <TextBlock x:Name="Malo" Text="{Binding Mporcentaje}" Canvas.Top="160" Canvas.Left="120"  Margin="0,5,0,0">
                  <Run Text="%"></Run>
             </TextBlock>
-            <TextBlock x:Name="Pesimo" Text="{Binding Pporcentaje}" Margin="0,5,0,0"  Canvas.Top="150" Canvas.Left="20">
+            <TextBlock x:Name="Pesimo" Text="{Binding Pporcentaje}" Canvas.Top="160" Canvas.Left="20" Margin="0,5,0,0">
                  <Run Text="%"></Run>
             </TextBlock>
         </Canvas>    
         <WrapPanel DockPanel.Dock="Bottom" HorizontalAlignment="Center">
-            <TextBlock FontWeight="DemiBold" Foreground="Black" >Promedio de personas que participaron en el cuestionario: 
+            <TextBlock FontWeight="DemiBold" Foreground="Black" >Personas que ya han participado en el cuestionario: 
         <TextBlock Foreground="Black" Text="{Binding CuestionarioResultado}"></TextBlock>
         </TextBlock>
         </WrapPanel>
-        <WrapPanel DockPanel.Dock="Bottom" Margin="0,165,10,0" HorizontalAlignment="Center">
-            <Button Click="Empezar_Click"  x:Name="Empezar" BorderThickness="0" Foreground="White" Height="30" Width="120" Margin="10,5" Background="#406343" Command="{Binding IniciarCommand}">Empezar</Button>
-            <Button Click="Detener_Click"  x:Name="Detener" BorderThickness="0" Foreground="White" Height="30" Width="120" Margin="10,5" Background="#334756" Command="{Binding DetenerCommand}">Detener</Button>
+        <WrapPanel DockPanel.Dock="Bottom" Margin="0,180,10,0" HorizontalAlignment="Center">
+            <Button Click="Empezar_Click"  x:Name="Empezar" Background="#406343" BorderThickness="0" Height="30" Width="120" Margin="10,5" Foreground="White"  Command="{Binding IniciarCommand}">Empezar</Button>
+            <Button Click="Detener_Click"  x:Name="Detener" Background="#334756" BorderThickness="0"  Height="30" Width="120" Margin="10,5" Foreground="White"  Command="{Binding DetenerCommand}">Detener</Button>
         </WrapPanel>
     </DockPanel>
 </Window>
