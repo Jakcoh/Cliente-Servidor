@@ -34,18 +34,6 @@ namespace Servidor_Servicio
             set;
         }
 
-        private string conexion;
-        public string Conexion
-        {
-            get { return conexion; }
-            set
-            {
-                conexion = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Conexion"));
-            }
-        }
-
-
         public int CuestionarioResultado
         {
             get { return cuestionario.Count; }
@@ -136,8 +124,7 @@ namespace Servidor_Servicio
                         }
                     }
                     catch (Exception) { }
-                });
-                Conexion = "Servidor conectado";
+                });       
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(null));
             }
         }
@@ -179,8 +166,7 @@ namespace Servidor_Servicio
                     client.Close();
                 }
                 clientes.Clear();
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(null));
-                conexion = "Servidor desconectado";
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(null));   
             }
         }
 
